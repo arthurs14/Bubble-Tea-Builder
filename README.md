@@ -1,6 +1,5 @@
-# Boba Tea Drink Builder
-
-A React project where you can customize your own bubble tea drink with all the add ons of your choices and etc.
+# Burger Builder
+A React project where you can customize your own burger with all the add ons of your choices and etc.
 
 ### `npm start`
 
