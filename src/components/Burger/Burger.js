@@ -1,4 +1,3 @@
-import { array } from 'prop-types';
 import React from 'react';
 import classes from './Burger.module.css';
 import BurgerIngredient from './BurgerIngredients/BurgerIngredient';
