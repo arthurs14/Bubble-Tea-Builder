@@ -23,6 +23,7 @@ const buildControls = ({ ingredientAdded, ingredientDeducted, disabled, price })
         />
       ))
     }
+    <button className={classes.OrderButton}>Order Now</button>
   </div>
 );
 
