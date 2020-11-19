@@ -129,32 +129,41 @@ class BurgerBuilder extends Component {
       disabledInfo[key] = disabledInfo[key] <= 0
     }
 
-    let orderSummary = <OrderSummary
-      ingredients={ingredients}
-      purchaseCancelled={this.purchaseCancelHandler}
-      purchaseContinued={this.purchaseContinueHandler}
-      total={totalPrice} />;
+    let orderSummary = null;
+    let burger = <Spinner />;
 
-    if (loading) {
-      orderSummary = <Spinner />
+    if (ingredients) {
+      burger = (
+        <Aux>
+          <Burger ingredients={ingredients} />
+          <BuildControls
+            price={totalPrice}
+            purchaseable={purchaseable}
+            ingredientAdded={this.addIngredientHandler}
+            ingredientDeducted={this.removeIngredientHandler}
+            disabled={disabledInfo}
+            ordered={this.purchaseHandler}
+          />
+        </Aux>
+      );
+
+      orderSummary = <OrderSummary
+        ingredients={ingredients}
+        purchaseCancelled={this.purchaseCancelHandler}
+        purchaseContinued={this.purchaseContinueHandler}
+        total={totalPrice} />;
     }
 
-
+    if (loading) {
+      orderSummary = <Spinner />;
+    }
 
     return (
       <Aux>
         <Modal show={purchasing} modalClosed={this.purchaseCancelHandler}>
           {orderSummary}
         </Modal>
-        <Burger ingredients={ingredients} />
-        <BuildControls
-          price={totalPrice}
-          purchaseable={purchaseable}
-          ingredientAdded={this.addIngredientHandler}
-          ingredientDeducted={this.removeIngredientHandler}
-          disabled={disabledInfo}
-          ordered={this.purchaseHandler}
-        />
+        {burger}
       </Aux>
     );
   }
