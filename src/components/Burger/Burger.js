@@ -1,4 +1,7 @@
 import React from 'react';
+// Only use if you need to access history and etc.
+// import { withRouter } from 'react-router-dom';
+
 import classes from './Burger.module.css';
 import BurgerIngredient from './BurgerIngredients/BurgerIngredient';
 
