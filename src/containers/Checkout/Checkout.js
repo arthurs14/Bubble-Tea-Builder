@@ -13,6 +13,10 @@ class Checkout extends Component {
     },
   };
 
+  componentDidMount() {
+
+  }
+
   checkoutCancelledHandler = () => {
     this.props.history.goBack();
   }
