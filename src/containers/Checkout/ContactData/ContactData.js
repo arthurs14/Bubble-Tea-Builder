@@ -13,8 +13,10 @@ class ContactData extends Component {
     },
   };
 
-  orderHandler = () => {
-
+  orderHandler = (ev) => {
+    ev.preventDefault();
+    const { ingredients } = this.props;
+    console.log(ingredients);
   }
 
   render() {
