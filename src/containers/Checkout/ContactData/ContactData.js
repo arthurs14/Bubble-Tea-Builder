@@ -43,6 +43,7 @@ class ContactData extends Component {
       .then(response => {
         // set it back to false so that it will go back to the order summary
         this.setState({ loading: false });
+        this.props.history.push('/');
       })
       .catch(error => {
         this.setState({ loading: false });
