@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import classes from './NavigationItem.module.css';
 
-const navigationItem = ({ item, link, active }) => (
+const navigationItem = ({ item, link }) => (
   <li className={classes.NavigationItem}>
     <NavLink
       to={link}
