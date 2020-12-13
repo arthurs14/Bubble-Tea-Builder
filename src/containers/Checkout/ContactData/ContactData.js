@@ -8,6 +8,27 @@ import Input from '../../../components/UI/Input/Input';
 
 class ContactData extends Component {
   state = {
+    orderForm: {
+      name: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Your Name',
+        },
+        value: ''
+      },
+      street: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Street Name',
+        },
+        value: '',
+      },
+      zipCode: '12345',
+      country: 'South Korea',
+      email: 'jisoo@gmail.com',
+    },
     name: '',
     email: '',
     address: {
@@ -28,15 +49,6 @@ class ContactData extends Component {
     const order = {
       ingredients: ingredients,
       price: price,
-      customer: {
-        name: 'Jisoo Kim',
-        address: {
-          street: 'YG Street',
-          zipCode: '12345',
-          country: 'South Korea'
-        },
-        email: 'jisoo@gmail.com',
-      },
       deliveryMethod: 'fastest',
     }
 
