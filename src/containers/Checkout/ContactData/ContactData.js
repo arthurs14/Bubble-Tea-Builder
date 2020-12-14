@@ -21,19 +21,44 @@ class ContactData extends Component {
         elementType: 'input',
         elementConfig: {
           type: 'text',
-          placeholder: 'Street Name',
+          placeholder: 'Street',
         },
         value: '',
       },
-      zipCode: '12345',
-      country: 'South Korea',
-      email: 'jisoo@gmail.com',
-    },
-    name: '',
-    email: '',
-    address: {
-      street: '',
-      postCode: '',
+      zipCode: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Zipcode',
+        },
+        value: '',
+      },
+      country: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Country',
+        },
+        value: '',
+      },
+      email: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'email',
+          placeholder: 'Email'
+        },
+        value: '',
+      },
+      deliveryMethod: {
+        elementType: 'select',
+        elementConfig: {
+          options: [
+            { value: 'fastest', displayValue: 'Fastest' },
+            { value: 'cheapest', displayValue: 'Cheapest' },
+          ]
+        },
+        value: '',
+      }
     },
     loading: false,
   };
