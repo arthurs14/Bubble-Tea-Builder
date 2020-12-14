@@ -20,7 +20,7 @@ const input = (props) => {
       break;
     default:
       inputElement = <input
-        classname={classes.InputElement}
+        className={classes.InputElement}
         {...props.elementConfig}
         alue={props.value} />;
   }
