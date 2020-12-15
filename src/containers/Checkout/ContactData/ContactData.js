@@ -89,18 +89,21 @@ class ContactData extends Component {
   }
 
   inputChangedHandler = (ev, inputIdentifier) => {
+    // create copy
     let updatedOrderForm = {
       ...this.state.orderForm
     };
 
+    // gets all the info from that one key
     let updatedFormElement = {
       ...updatedOrderForm[inputIdentifier]
     };
 
+    // goes to value key and updates the value
     updatedFormElement.value = ev.target.value;
-
     updatedOrderForm[inputIdentifier] = updatedFormElement;
 
+    // sets the new value
     this.setState({ orderForm: updatedOrderForm });
   }
 
