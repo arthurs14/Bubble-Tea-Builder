@@ -86,8 +86,11 @@ class ContactData extends Component {
       .catch(error => {
         this.setState({ loading: false });
       });
+  }
 
-
+  inputChangedHandler = (ev) => {
+    console.log('working?')
+    console.log(ev.target.value);
   }
 
   render() {
@@ -108,7 +111,8 @@ class ContactData extends Component {
             key={formElement.id}
             elementType={formElement.config.elementType}
             elementConfig={formElement.config.elementConfig}
-            value={formElement.config.value} />
+            value={formElement.config.value}
+            changed={this.inputChangedHandler} />
         ))}
         <Button btnType="Success" clicked={this.orderHandler}>ORDER</Button>
       </form>
