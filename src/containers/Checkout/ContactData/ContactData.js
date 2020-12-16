@@ -15,7 +15,10 @@ class ContactData extends Component {
           type: 'text',
           placeholder: 'Your Name',
         },
-        value: ''
+        value: '',
+        validation: {
+          required: true,
+        }
       },
       street: {
         elementType: 'input',
@@ -24,6 +27,9 @@ class ContactData extends Component {
           placeholder: 'Street',
         },
         value: '',
+        validation: {
+          required: true,
+        }
       },
       zipCode: {
         elementType: 'input',
@@ -32,6 +38,9 @@ class ContactData extends Component {
           placeholder: 'Zipcode',
         },
         value: '',
+        validation: {
+          required: true,
+        }
       },
       country: {
         elementType: 'input',
@@ -40,6 +49,9 @@ class ContactData extends Component {
           placeholder: 'Country',
         },
         value: '',
+        validation: {
+          required: true,
+        }
       },
       email: {
         elementType: 'input',
@@ -48,6 +60,9 @@ class ContactData extends Component {
           placeholder: 'Email'
         },
         value: '',
+        validation: {
+          required: true,
+        }
       },
       deliveryMethod: {
         elementType: 'select',
