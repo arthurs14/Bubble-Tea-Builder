@@ -18,7 +18,8 @@ class ContactData extends Component {
         value: '',
         validation: {
           required: true,
-        }
+        },
+        valid: false,
       },
       street: {
         elementType: 'input',
@@ -29,7 +30,8 @@ class ContactData extends Component {
         value: '',
         validation: {
           required: true,
-        }
+        },
+        valid: false,
       },
       zipCode: {
         elementType: 'input',
@@ -40,7 +42,8 @@ class ContactData extends Component {
         value: '',
         validation: {
           required: true,
-        }
+        },
+        valid: false,
       },
       country: {
         elementType: 'input',
@@ -51,7 +54,8 @@ class ContactData extends Component {
         value: '',
         validation: {
           required: true,
-        }
+        },
+        valid: false,
       },
       email: {
         elementType: 'input',
@@ -62,7 +66,8 @@ class ContactData extends Component {
         value: '',
         validation: {
           required: true,
-        }
+        },
+        valid: false,
       },
       deliveryMethod: {
         elementType: 'select',
@@ -111,6 +116,16 @@ class ContactData extends Component {
       });
   }
 
+  checkValidity(value, rules) {
+    let isValid = false;
+
+    if (rules.required) {
+      isValid = value.trim() !== '';
+    }
+
+    return isValid;
+  }
+
   inputChangedHandler = (ev, inputIdentifier) => {
     // create copy
     let updatedOrderForm = {
@@ -124,7 +139,10 @@ class ContactData extends Component {
 
     // goes to value key and updates the value
     updatedFormElement.value = ev.target.value;
+    updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
     updatedOrderForm[inputIdentifier] = updatedFormElement;
+
+    console.log({ orderForm: updatedOrderForm });
 
     // sets the new value
     this.setState({ orderForm: updatedOrderForm });
