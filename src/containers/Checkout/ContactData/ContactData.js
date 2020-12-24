@@ -171,7 +171,7 @@ class ContactData extends Component {
   }
 
   render() {
-    const { loading, orderForm } = this.state;
+    const { loading, orderForm, formIsValid } = this.state;
     let formElementsArr = [];
 
     for (let key in orderForm) {
@@ -194,7 +194,7 @@ class ContactData extends Component {
             touched={formElement.config.touched}
             changed={(event) => this.inputChangedHandler(event, formElement.id)} />
         ))}
-        <Button btnType="Success">ORDER</Button>
+        <Button btnType="Success" disabled={!formIsValid}>ORDER</Button>
       </form>
     );
 
