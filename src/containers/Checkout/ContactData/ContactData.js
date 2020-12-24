@@ -87,6 +87,7 @@ class ContactData extends Component {
         value: '',
       }
     },
+    formIsValid: false,
     loading: false,
   };
 
@@ -160,8 +161,13 @@ class ContactData extends Component {
 
     console.log({ orderForm: updatedOrderForm });
 
+    let formIsValid = true;
+    for (let inputIdentifier in updatedOrderForm) {
+      formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
+    }
+
     // sets the new value
-    this.setState({ orderForm: updatedOrderForm });
+    this.setState({ orderForm: updatedOrderForm, formIsValid: formIsValid });
   }
 
   render() {
