@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Aux from '../../hoc/Auxiliary/Auxiliary';
 import Burger from '../../components/Burger/Burger';
@@ -158,5 +159,17 @@ class BurgerBuilder extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    ings: state.ingredients,
+  }
+};
+ 
+const mapDispatchToProps = dispatch => {
+  return {
+    onIngredientAdded: () => dispatch({ type:  })
+  };
+};
 
 export default withErrorHandler(BurgerBuilder, axios);
