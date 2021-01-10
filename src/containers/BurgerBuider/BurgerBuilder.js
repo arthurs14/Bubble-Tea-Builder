@@ -20,7 +20,6 @@ const INGREDIENT_PRICES = {
 
 class BurgerBuilder extends Component {
   state = {
-    ingredients: null,
     totalPrice: 4,
     purchaseable: false,
     purchasing: false,
@@ -112,9 +111,12 @@ class BurgerBuilder extends Component {
   }
 
   render() {
-    const { ingredients, totalPrice, purchaseable, purchasing, loading, error } = this.state;
+    const { totalPrice, purchaseable, purchasing, loading, error } = this.state;
+    const { onIngredientAdded, onIngredientRemoved } = this.props;
+
+    let ingredients = this.props.ings;
     let disabledInfo = {
-      ...ingredients
+      ...ingredients,
     };
 
     for (let key in disabledInfo) {
@@ -131,8 +133,8 @@ class BurgerBuilder extends Component {
           <BuildControls
             price={totalPrice}
             purchaseable={purchaseable}
-            ingredientAdded={this.addIngredientHandler}
-            ingredientDeducted={this.removeIngredientHandler}
+            ingredientAdded={onIngredientAdded}
+            ingredientDeducted={onIngredientRemoved}
             disabled={disabledInfo}
             ordered={this.purchaseHandler}
           />
