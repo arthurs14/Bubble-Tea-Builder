@@ -16,7 +16,6 @@ class Checkout extends Component {
   }
 
   render() {
-    const { totalPrice } = this.state;
     const { ingredients } = this.props.ings;
     return (
       <div>
@@ -27,7 +26,7 @@ class Checkout extends Component {
 
         <Route
           path={this.props.match.path + '/contact-data'}
-          render={(props) => (<ContactData ingredients={ingredients} price={totalPrice} {...props} />)} />
+          component={ContactData} />
       </div>
     );
   }
@@ -36,7 +35,6 @@ class Checkout extends Component {
 const mapStateToProps = state => {
   return {
     ings: state.ingredients,
-    price: state.totalPrice,
   };
 }
 
