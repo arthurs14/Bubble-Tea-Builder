@@ -130,7 +130,7 @@ class ContactData extends Component {
   }
 
   checkValidity(value, rules) {
-    let isValid = false;
+    let isValid = true;
 
     if (!rules) {
       return true;
@@ -175,6 +175,9 @@ class ContactData extends Component {
     // goes to value key and updates the value
     updatedFormElement.value = ev.target.value;
     updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
+
+    console.log(updatedFormElement);
+
     updatedFormElement.touched = true;
     updatedOrderForm[inputIdentifier] = updatedFormElement;
 
@@ -197,6 +200,8 @@ class ContactData extends Component {
         config: orderForm[key],
       });
     }
+
+    console.log('[formElementsArr]', formElementsArr);
 
     let form = (
       <form onSubmit={this.orderHandler}>
