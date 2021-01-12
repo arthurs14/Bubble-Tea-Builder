@@ -47,6 +47,7 @@ class ContactData extends Component {
           required: true,
           minLength: 5,
           maxLength: 5,
+          isNumeric: true,
         },
         valid: false,
         touched: false,
@@ -73,6 +74,7 @@ class ContactData extends Component {
         value: '',
         validation: {
           required: true,
+          isEmail: true,
         },
         valid: false,
         touched: false,
@@ -97,6 +99,9 @@ class ContactData extends Component {
   orderHandler = (ev) => {
     ev.preventDefault();
 
+    // shows loading animation to show that its processing
+    this.setState({ loading: true });
+
     const { ings, price } = this.props;
     const { orderForm } = this.state;
 
@@ -105,9 +110,6 @@ class ContactData extends Component {
     for (let orderKey in orderForm) {
       formData[orderKey] = orderForm[orderKey].value;
     }
-
-    // shows loading animation to show that its processing
-    this.setState({ loading: true });
 
     const order = {
       ingredients: ings,
@@ -146,6 +148,16 @@ class ContactData extends Component {
       isValid = value.length <= rules.maxLength && isValid;
     }
 
+    if (rules.isEmail) {
+      const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+      isValid = pattern.test(value) && isValid;
+    }
+
+    if (rules.isNumeric) {
+      const pattern = /^\d+$/;
+      isValid = pattern.test(value) && isValid;
+    }
+
     return isValid;
   }
 
@@ -165,8 +177,6 @@ class ContactData extends Component {
     updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
     updatedFormElement.touched = true;
     updatedOrderForm[inputIdentifier] = updatedFormElement;
-
-    console.log({ orderForm: updatedOrderForm });
 
     let formIsValid = true;
     for (let inputIdentifier in updatedOrderForm) {
