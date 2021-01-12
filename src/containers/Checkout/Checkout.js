@@ -16,11 +16,11 @@ class Checkout extends Component {
   }
 
   render() {
-    const { ingredients } = this.props.ings;
+    const { ings } = this.props;
     return (
       <div>
         <CheckoutSummary
-          ingredients={ingredients}
+          ingredients={ings}
           checkoutCancelled={this.checkoutCancelledHandler}
           checkoutContinued={this.checkoutContinuedHandler} />
 

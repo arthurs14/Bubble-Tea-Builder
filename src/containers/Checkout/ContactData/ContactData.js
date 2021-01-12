@@ -97,8 +97,7 @@ class ContactData extends Component {
   orderHandler = (ev) => {
     ev.preventDefault();
 
-    const { ingredients } = this.props.ings;
-    const { price } = this.props.price;
+    const { ings, price } = this.props;
     const { orderForm } = this.state;
 
     let formData = {};
@@ -111,7 +110,7 @@ class ContactData extends Component {
     this.setState({ loading: true });
 
     const order = {
-      ingredients: ingredients,
+      ingredients: ings,
       price: price,
       orderData: formData,
       deliveryMethod: 'fastest',
