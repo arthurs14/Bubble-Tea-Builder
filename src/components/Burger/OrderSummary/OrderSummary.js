@@ -10,6 +10,7 @@ class OrderSummary extends Component {
 
   render() {
     const { ingredients, purchaseCancelled, purchaseContinued, total } = this.props;
+    console.log(ingredients);
     const ingredientSummary = Object.keys(ingredients).map(igKey => {
       return (
         <li key={igKey + 1}>
