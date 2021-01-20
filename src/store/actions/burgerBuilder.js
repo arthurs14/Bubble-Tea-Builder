@@ -22,8 +22,10 @@ export const setIngredients = (ingredients) => {
   };
 };
 
-export fetchIngredientsFailed = () => {
-
+export const fetchIngredientsFailed = () => {
+  return {
+    type: actionTypes.FETCH_INGREDIENTS_FAILED,
+  }
 };
 
 export const initIngredients = () => {
@@ -31,7 +33,7 @@ export const initIngredients = () => {
     axios.get(`https://react-burger-builder-1b4e0.firebaseio.com/ingredients.json`).then(response => {
       dispatch(setIngredients(response.data));
     }).catch(error => {
-
+      dispatch(fetchIngredientsFailed());
     });
   };
 };
