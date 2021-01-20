@@ -117,16 +117,6 @@ class ContactData extends Component {
       orderData: formData,
       deliveryMethod: 'fastest',
     }
-
-    axios.post('/orders.json', order)
-      .then(response => {
-        // set it back to false so that it will go back to the order summary
-        this.setState({ loading: false });
-        this.props.history.push('/');
-      })
-      .catch(error => {
-        this.setState({ loading: false });
-      });
   }
 
   checkValidity(value, rules) {
