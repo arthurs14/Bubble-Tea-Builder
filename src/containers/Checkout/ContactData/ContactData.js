@@ -95,7 +95,6 @@ class ContactData extends Component {
       }
     },
     formIsValid: false,
-    loading: false,
   };
 
   orderHandler = (ev) => {
@@ -228,6 +227,7 @@ const mapStateToProps = state => {
   return {
     ings: state.ingredients,
     price: state.totalPrice,
+    loading: state.loading,
   };
 };
 
