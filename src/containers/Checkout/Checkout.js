@@ -8,7 +8,7 @@ import * as actions from '../../store/actions/index';
 
 // Summary of what the user will buy
 class Checkout extends Component {
-  componentWillMount () {
+  UNSAFE_componentWillMount () {
     this.props.onInitPurchase();
   }
 
@@ -21,12 +21,15 @@ class Checkout extends Component {
   }
 
   render() {
-    const { ings } = this.props;
-    let summary = <Redirect to="/" />
+    const { ings, purchased } = this.props;
+    let summary = <Redirect to="/" />;
+    
 
     if (ings) {
+      let purchasedRedirect = purchased ? <Redirect to="/" /> : null;
       summary = 
         <div>
+          {purchasedRedirect}
           <CheckoutSummary
             ingredients={ings}
             checkoutCancelled={this.checkoutCancelledHandler}
@@ -45,6 +48,7 @@ class Checkout extends Component {
 const mapStateToProps = state => {
   return {
     ings: state.burgerBuilder.ingredients,
+    purchased: state.order.purchased,
   };
 }
 
