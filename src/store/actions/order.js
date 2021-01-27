@@ -75,9 +75,8 @@ export const fetchOrders = () => {
           });
         }
         dispatch(fetchOrdersSuccess(fetchedOrders));
-        this.setState({ loading: false, orders: fetchedOrders });
       }).catch(err => {
-        this.setState({ loading: false });
+        dispatch(fetchOrdersFailed(err));
       });
   };
 };
