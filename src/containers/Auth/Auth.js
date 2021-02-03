@@ -38,11 +38,13 @@ class Auth extends Component {
   };
 
   render () {
+    const { controls } = this.state;
+
     const formElementsArr = [];
-    for (let key in this.state.orderForm) {
+    for (let key in controls) {
       formElementsArr.push({
         id: key,
-        config: this.state.orderForm[key],
+        config: controls[key],
       });
     }
 
