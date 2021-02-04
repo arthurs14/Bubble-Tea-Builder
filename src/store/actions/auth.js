@@ -27,5 +27,5 @@ export const authFail = (error) => {
 export const auth = (email, password) => {
   return dispatch => {
     dispatch(authStart());
-  }
+  };
 };

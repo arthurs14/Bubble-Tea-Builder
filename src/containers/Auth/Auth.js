@@ -86,6 +86,11 @@ class Auth extends Component {
     this.setState({ controls: updatedControls });
   }
 
+  submitHandler(ev) {
+    ev.preventDefault();
+    this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value);
+  }
+
   render () {
     const { controls } = this.state;
 
@@ -112,7 +117,7 @@ class Auth extends Component {
 
     return (
       <div className={classes.Auth}>
-        <form>
+        <form onSubmit={this.submitHandler}>
           {form}
           <Button btnType='Success'>SUBMIT</Button>
         </form>
