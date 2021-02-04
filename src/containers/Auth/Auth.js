@@ -86,7 +86,7 @@ class Auth extends Component {
     this.setState({ controls: updatedControls });
   }
 
-  submitHandler(ev) {
+  submitHandler = (ev) => {
     ev.preventDefault();
     this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value);
   }
