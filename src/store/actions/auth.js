@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import * as actionTypes from './actionTypes';
 
 // Set loading state
@@ -27,5 +29,11 @@ export const authFail = (error) => {
 export const auth = (email, password) => {
   return dispatch => {
     dispatch(authStart());
+    const authData = {
+      email: email,
+      password: password,
+      returnSecureToken: true,
+    }
+    axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAbMQaqD-UtnyytKMA-7c92OWOLTN81rTk', authData)
   };
 };
