@@ -6,7 +6,6 @@ import classes from './Burger.module.css';
 import BurgerIngredient from './BurgerIngredients/BurgerIngredient';
 
 const burger = ({ ingredients }) => {
-  console.log('ingredients:', ingredients);
   // turns object into an array by keys then created BurgerIngredient for every
   let transformedIngredients = Object.keys(ingredients).map(igKey => {
     return [...Array(ingredients[igKey])].map((_, i) => {
