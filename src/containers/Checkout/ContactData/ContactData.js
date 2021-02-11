@@ -180,7 +180,6 @@ class ContactData extends Component {
   }
 
   render() {
-    console.log('token:', this.props.token);
     const { orderForm, formIsValid } = this.state;
     const { loading } = this.props;
     let formElementsArr = [];
