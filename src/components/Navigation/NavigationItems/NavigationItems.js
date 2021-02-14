@@ -6,8 +6,8 @@ const navigationItems = ({ isAuthenticated }) => (
   <ul className={classes.NavigationItems}>
     <NavigationItem item="Burger Builder" link="/" />
     <NavigationItem item="Orders" link="/orders" />
-    {isAuthenticated 
-      ? <NavigationItem item="Authenticate" link="/auth" />
+    {!isAuthenticated 
+      ? <NavigationItem item="Login" link="/auth" />
       : <NavigationItem item="Logout" link="/logout" />}
   </ul>
 );
