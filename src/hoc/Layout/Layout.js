@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import Aux from '../Auxiliary/Auxiliary';
 import classes from './Layout.module.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
@@ -33,4 +35,4 @@ class Layout extends Component {
   }
 }
 
-export default Layout;
+export default connect(mapStateToProps)(Layout);
