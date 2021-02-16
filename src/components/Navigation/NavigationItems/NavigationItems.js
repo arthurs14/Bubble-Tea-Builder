@@ -5,10 +5,14 @@ import NavigationItem from './NavigationItem/NavigationItem';
 const navigationItems = ({ isAuthenticated }) => (
   <ul className={classes.NavigationItems}>
     <NavigationItem item="Burger Builder" link="/" />
-    <NavigationItem item="Orders" link="/orders" />
-    {!isAuthenticated 
+    {
+      isAuthenticated ? <NavigationItem item="Orders" link="/orders" /> : null
+    }
+    {
+    !isAuthenticated 
       ? <NavigationItem item="Login" link="/auth" />
-      : <NavigationItem item="Logout" link="/logout" />}
+      : <NavigationItem item="Logout" link="/logout" />
+    }
   </ul>
 );
 
