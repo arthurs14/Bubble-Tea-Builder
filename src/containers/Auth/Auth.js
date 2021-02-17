@@ -108,7 +108,7 @@ class Auth extends Component {
 
   render () {
     const { controls, isSignup } = this.state;
-    const { loading, error, isAuthenticated, authRedirectPath, buildingBurger } = this.props;
+    const { loading, error, isAuthenticated, authRedirectPath } = this.props;
 
     const formElementsArr = [];
     for (let key in controls) {
@@ -144,10 +144,8 @@ class Auth extends Component {
     }
 
     let authRedirect = null;
-    if (isAuthenticated && buildingBurger) {
+    if (isAuthenticated) {
       authRedirect = <Redirect to={authRedirectPath} />;
-    } else if (isAuthenticated) {
-      authRedirect=<Redirect to={authRedirectPath} />;
     }
 
     return (
