@@ -44,8 +44,8 @@ class Auth extends Component {
   };
 
   componentDidMount () {
-    if (!this.props.builderBurger && this.props.authRedirectPath !== '/') {
-      this.onSetAuthRedirectPath();
+    if (!this.props.buildingBurger && this.props.authRedirectPath !== '/') {
+      this.props.onSetAuthRedirectPath();
     }
   }
 
@@ -108,7 +108,7 @@ class Auth extends Component {
 
   render () {
     const { controls, isSignup } = this.state;
-    const { loading, error, isAuthenticated, authRedirectPath } = this.props;
+    const { loading, error, isAuthenticated, authRedirectPath, buildingBurger } = this.props;
 
     const formElementsArr = [];
     for (let key in controls) {
@@ -144,8 +144,10 @@ class Auth extends Component {
     }
 
     let authRedirect = null;
-    if (isAuthenticated) {
+    if (isAuthenticated && buildingBurger) {
       authRedirect = <Redirect to={authRedirectPath} />;
+    } else if (isAuthenticated) {
+      authRedirect=<Redirect to={authRedirectPath} />;
     }
 
     return (
