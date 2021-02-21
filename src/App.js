@@ -17,27 +17,29 @@ class App extends Component {
   
   render() {
     const { isAuthenticated } = this.props;
-    
-    let routes = (
 
+    let routes = (
+      <Switch>
+        <Route path="/auth" component={Auth} />
+        <Route path="/" exact component={BurgerBuilder} />
+      </Switch>
     );
 
     if (isAuthenticated) {
       routes = (
-
+        <Switch>
+            <Route path="/checkout" component={Checkout} />
+            <Route path="/orders" component={Orders} />
+            <Route path="/logout" component={Logout} />
+            <Route path="/" exact component={BurgerBuilder} />
+        </Switch>
       );
     }
 
     return (
       <div>
         <Layout>
-          <Switch>
-            <Route path="/checkout" component={Checkout} />
-            <Route path="/orders" component={Orders} />
-            <Route path="/auth" component={Auth} />
-            <Route path="/logout" component={Logout} />
-            <Route path="/" exact component={BurgerBuilder} />
-          </Switch>
+          {routes}
         </Layout>
       </div>
     );
