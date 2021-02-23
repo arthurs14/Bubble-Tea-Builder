@@ -102,7 +102,7 @@ class ContactData extends Component {
 
     // shows loading animation to show that its processing
 
-    const { ings, price, onOrderBurger, token } = this.props;
+    const { ings, price, onOrderBurger, token, userId } = this.props;
     const { orderForm } = this.state;
 
     let formData = {};
@@ -115,6 +115,7 @@ class ContactData extends Component {
       ingredients: ings,
       price: price,
       orderData: formData,
+      userId: userId,
     };
 
     onOrderBurger(order, token);
@@ -230,6 +231,7 @@ const mapStateToProps = state => {
     price: state.burgerBuilder.totalPrice,
     loading: state.order.loading,
     token: state.auth.token,
+    userId: state.auth.userId,
   };
 };
 
