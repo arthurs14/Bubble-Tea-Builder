@@ -121,7 +121,7 @@ class ContactData extends Component {
 
     onOrderBurger(order, token);
   }
-  
+
   inputChangedHandler = (ev, inputIdentifier) => {
     const { orderForm } = this.state;
 
@@ -156,8 +156,6 @@ class ContactData extends Component {
         config: orderForm[key],
       });
     }
-
-    console.log('[formElementsArr]', formElementsArr);
 
     let form = (
       <form onSubmit={this.orderHandler}>
