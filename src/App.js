@@ -8,6 +8,8 @@ import BurgerBuilder from './containers/BurgerBuider/BurgerBuilder';
 import Logout from './containers/Auth/Logout/Logout';
 import * as actions from './store/actions/index';
 
+
+// lazy load or only load when needed Checkout, Orders, and Auth components
 const asyncCheckout = asyncComponent(() => {
   return import('./containers/Checkout/Checkout');
 });
