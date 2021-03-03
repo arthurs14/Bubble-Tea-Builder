@@ -12,13 +12,16 @@ configure({ adapter: new Adapter() });
 // 1. description of test bundle (identify the kind of test)
 // 2. a function that will do a test
 describe('<NavigationItems />', () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<NavigationItems />);
+  });
+
   it('should render two <NavigationItem /> elements if not authenticated', () => {
-    const wrapper = shallow(<NavigationItems />);
     expect(wrapper.find(NavigationItem)).toHaveLength(2);
   });
 
   it('should render three <NavigationItem /> elements if authenticated', () => {
-    const wrapper = shallow(<NavigationItems isAuthenticated />);
     expect(wrapper.find(NavigationItem)).toHaveLength(3);
   });
 });
