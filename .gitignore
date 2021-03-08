@@ -9,6 +9,10 @@
 /coverage
 
 # production
+.github
+.firebase
+.firebaserc
+firebase.json
 /build
 
 # misc
