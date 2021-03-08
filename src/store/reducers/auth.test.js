@@ -32,4 +32,24 @@ describe('auth reducer', () => {
       authRedirectPath: '/',
     });
   });
+
+  it('should logout with token and id set to null', () => {
+    expect(reducer({
+      token: null,
+      userId: null,
+      error: null,
+      loading: false,
+      authRedirectPath: '/',
+    }, {
+      type: actionTypes.AUTH_LOGOUT,
+      token: null,
+      userId: null,
+    })).toEqual({
+      token: null,
+      userId: null,
+      error: null,
+      loading: false,
+      authRedirectPath: '/',
+    });
+  });
 });
