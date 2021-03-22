@@ -27,9 +27,6 @@ export const authFail = (error) => {
 };
 
 export const logout = () => {
-  // localStorage.removeItem('token');
-  // localStorage.removeItem('expirationTime');
-  // localStorage.removeItem('userId');
   return {
     type: actionTypes.AUTH_INITIATE_LOGOUT,
   };
