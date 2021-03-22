@@ -40,10 +40,9 @@ export const logoutSucceed = () => {
 
 // Check auth timeout
 export const checkAuthTimeout = (expirationTime) => {
-  return dispatch => {
-    setTimeout(() => {
-      dispatch(logout());
-    }, expirationTime * 1000);
+  return {
+    type: actionTypes.AUTH_CHECK_TIMEOUT,
+    expirationTime: expirationTime,
   };
 };
 
