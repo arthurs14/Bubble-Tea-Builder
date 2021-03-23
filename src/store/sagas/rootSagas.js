@@ -8,7 +8,7 @@ import {
     authCheckStateSaga 
 } from './auth';
 import { initIngredientsSaga } from './burgerBuilderSagas';
-import { purchaseBurgerSaga } from './orderSagas';
+import { purchaseBurgerSaga, fetchOrdersSaga } from './orderSagas';
 
 // Generator
 export function* watchAuth () {
@@ -24,4 +24,5 @@ export function* watchBurgerBuilder () {
 
 export function* watchOrder () {
     yield takeEvery(actionTypes.PURCHASE_BURGER, purchaseBurgerSaga);
+    yield takeEvery(actionTypes.FETCH_ORDERS, fetchOrdersSaga);
 }
