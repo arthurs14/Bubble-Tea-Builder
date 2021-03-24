@@ -25,8 +25,6 @@ export function* watchBurgerBuilder () {
 }
 
 export function* watchOrder () {
-    yield all([
-        takeEvery(actionTypes.PURCHASE_BURGER, purchaseBurgerSaga),
-        takeEvery(actionTypes.FETCH_ORDERS, fetchOrdersSaga),
-    ]);
+    takeEvery(actionTypes.PURCHASE_BURGER, purchaseBurgerSaga);
+    takeEvery(actionTypes.FETCH_ORDERS, fetchOrdersSaga);
 }
