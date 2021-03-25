@@ -25,7 +25,7 @@ export function* watchBurgerBuilder () {
 }
 
 export function* watchOrder () {
-    yield all(['making a change']);
+    yield all(['hello?']);
     takeEvery(actionTypes.PURCHASE_BURGER, purchaseBurgerSaga);
     takeEvery(actionTypes.FETCH_ORDERS, fetchOrdersSaga);
 }
